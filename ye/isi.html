@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAN 1 JEMBER | Profile | Linktree</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" href="photo/logo.jpg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Gaya Dasar */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%), 
+                        linear-gradient(to bottom right, #00c6ff, #0072ff); 
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Top-right photo */
+        .top-right-photo {
+            position: fixed;
+            top: 5px;
+            right: 5px;
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            background-size: 120px 120px;
+            z-index: 999;
+        }
+
+        /* Top-left photo */
+        .top-left-photo {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            background-size: 120px 120px;
+            z-index: 999;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pp-container {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            margin-bottom:25px;
+            height: 240px;
+        }
+
+        .profile-tittle {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .profile-subtitle {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            color : white;
+            height : 5px;
+        }
+
+        .profile-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 16px;
+            color: #333;
+            background: #eaeaea;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .link:hover {
+            background: #ddd;
+        }
+
+        .link svg, .link i {
+            margin-right: 8px;
+        }
+
+        /* Gaya Card */
+        .card-container {
+        display: flex;
+        flex-direction: column; /* Atur tata letak kartu menjadi vertikal */
+        gap: 15px; /* Jarak antar kartu */
+        max-width: 800px;
+        width: 100%;
+        justify-content: center;
+        align-items: center; /* Pusatkan kartu secara horizontal */
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column; /* Atur konten kartu vertikal */
+        align-items: center;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 100%; /* Sesuaikan lebar kartu */
+        max-width: 400px; /* Tentukan lebar maksimal */
+        text-align: center;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+
+        .card-content .links-container {
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            display: inline-block; 
+            background: #ffffff; 
+            padding: 10px 20px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            color: #0072ff; 
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s; 
+        }
+
+        footer a:hover {
+            background: #f1f1f1; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+            transform: translateY(-3px); 
+        }
+
+         /* Media Queries untuk responsif */
+         @media (max-width: 768px) {
+            .profile-container {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .card {
+                width: 100%;  /* Membuat card full width pada perangkat kecil */
+                margin-bottom: 15px;
+            }
+
+            .top-right-photo, .top-left-photo {
+                width: 40px; /* Memperkecil foto top-right dan top-left */
+            }
+
+            .profile-photo {
+                width: 100px; /* Memperkecil foto profil */
+                height: 100px;
+            }
+
+            .profile-name {
+                font-size: 20px; /* Menurunkan ukuran nama profil pada perangkat kecil */
+            }
+
+            .card-title {
+                font-size: 16px; /* Menurunkan ukuran judul pada kartu */
+            }
+
+            .card-description {
+                font-size: 12px; /* Menurunkan ukuran deskripsi kartu */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-name {
+                font-size: 18px; /* Ukuran nama lebih kecil di perangkat lebih kecil */
+            }
+
+            .profile-bio {
+                font-size: 12px; /* Ukuran bio lebih kecil */
+            }
+
+            .link {
+                font-size: 14px; /* Menurunkan ukuran teks tautan */
+            }
+
+            footer a {
+                padding: 8px 16px; /* Memperkecil tombol footer */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top-right photo -->
+    <a href="https://instagram.com/cyrovention.majesa" target="_blank">
+        <img src="photo/cyro.jpg" alt="Top Right Photo" class="top-right-photo">
+    </a>
+    
+    <!-- Top-left photo -->
+    <a href="https://instagram.com/manpkjember" target="_blank">
+        <img src="photo/PK.jpg" alt="Top Left Photo" class="top-left-photo">
+    </a>
+
+    <div class="pp-container">
+        <a href="1.html">
+            <img src="photo/desain.jpg" alt="MAN 1 Jember Photo" class="profile-photo">
+        </a>
+    <h1 class="profile-title">Profile</h1>
+    <p class="profile-subtitle">Jangan Lupa follow Sosmed kami, dan tunggu project kami selanjutnya!!</p>
+</div>
+
+    <!-- Profil -->
+    <div class="profile-container">
+        <img src="photo/logo.jpg" alt="MAN 1 Jember Photo" class="profile-photo">
+        <h1 class="profile-name">MAN 1 Jember</h1>
+        <p class="profile-bio">Madrasah Aliyah Negeri 1 Jember Official Account</p>
+        <div class="links-container">
+            <a href="https://instagram.com/man1jember_official" target="_blank" class="link">
+                <i data-feather="instagram"></i> Instagram
+            </a>
+            <a href="https://youtube.com/@man1jemberofficial830" target="_blank" class="link">
+                <i data-feather="youtube"></i> YouTube
+            </a>
+            <a href="https://tiktok.com/@man1jember_official" target="_blank" class="link">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+        </div>
+    </div>
+
+    <!-- Kartu Perusahaan -->
+    <div class="profile-container">
+        <img src="photo/putra.jpg" alt="MahadPutraAlIhsan" class="profile-photo">
+        <h1 class="profile-name">Mahad Putra Al-Ihsan</h1>
+        <p class="profile-bio">Mahad Putra Al-Ihsan Official Account</p>
+        <div class="links-container">
+            <a href="https://instagram.com/mahadputraalihsan_" target="_blank" class="link">
+                <i data-feather="instagram"></i> Instagram
+            </a>
+            <a href="https://youtube.com/@mahadputra.man1jember" target="_blank" class="link">
+                <i data-feather="youtube"></i> YouTube
+            </a>
+            <a href="https://tiktok.com/@mahadputra.man1jember" target="_blank" class="link">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <img src="photo/putri.jpg" alt="MahadPutraKhodijah" class="profile-photo">
+        <h1 class="profile-name">Mahad Putri Khodijah</h1>
+        <p class="profile-bio">Mahad Putri Khodijah Official Account</p>
+        <div class="links-container">
+            <a href="https://instagram.com/mahadputrikhodijah" target="_blank" class="link">
+                <i data-feather="instagram"></i> Instagram
+            </a>
+            <a href="https://youtube.com/@MahadPutriKhodijah" target="_blank" class="link">
+                <i data-feather="youtube"></i> YouTube
+            </a>
+            <a href="https://tiktok.com/@mahadputrikhodijah" target="_blank" class="link">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+        </div>
+    </div>
+    <script>
+        feather.replace();
+        
+        // Initialize first page
+document.addEventListener('DOMContentLoaded', () => showPage(1));
+
+function createFallingHeart() {
+    const heartContainer = document.getElementById('hearts-container');
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+
+    // Set posisi awal hati secara acak
+    heart.style.left = `${Math.random() * 100}vw`;
+
+    // Durasi jatuh dan ukuran hati secara acak
+    heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // 3s - 5s
+    heart.style.width = heart.style.height = `${Math.random() * 10 + 10}px`; // 10px - 20px
+
+    // Tambahkan hati ke dalam container
+    heartContainer.appendChild(heart);
+
+    // Hapus hati setelah animasi selesai
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+// Buat hati berjatuhan setiap 200ms
+    setInterval(createFallingHeart, 200);
+    </script>
+    <footer>
+        <p><a href="Developer.html">My Portofolio</a></p>
+    </footer>            
+</body>
+</html>
